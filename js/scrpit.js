@@ -20,6 +20,8 @@ function calculadora(button, display) {
         case 'C':
             borrar(display);
             break;
+            case '←':
+                supr(display);
         case '=':
             calcular(display);
             break;
@@ -30,10 +32,18 @@ function calculadora(button, display) {
 
 }
 
-function calcular(display) {
+function calcular(display, button) {
 
     display.innerHTML = eval(display.innerHTML)
 }
+
+function supr(display){
+    let disp = display.innerHTML;
+    if (disp.length >= 2){
+    display.innerHTML = disp.slice(0, -1);}
+    else
+    display.innerHTML = 0
+ }
 
 function actualizar(display, button) {
     if (display.innerHTML == 0) {
@@ -41,6 +51,7 @@ function actualizar(display, button) {
     }
     display.innerHTML += button.innerHTML;
 }
+
 
 function borrar(display) {
     display.innerHTML = 0
