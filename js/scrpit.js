@@ -8,6 +8,8 @@ window.addEventListener('load', ()=> {
         
         button.addEventListener('click', ()=> {
 
+            calculadora (button, display);
+
         })
     })
 });
@@ -21,7 +23,7 @@ function calculadora(button, display) {
         case '=':
             calcular(display);
             break;
-        default
+        default:
             actualizar(display, button);
             break;
     }
@@ -35,7 +37,11 @@ function calcular(display) {
 
 function actualizar(display, button) {
     if (display.innerHTML == 0) {
-        display.innetHTML = '';
+        display.innerHTML = '';
     }
-    display.innerHTML += button.innerHTML
+    display.innerHTML += button.innerHTML;
+}
+
+function borrar(display) {
+    display.innerHTML = 0
 }
